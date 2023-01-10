@@ -1,22 +1,8 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <iostream>
+#include "Window.h"
 
-#include "utils/Log.h"
-
-using namespace utils;
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-    if(SDL_Init(SDL_INIT_VIDEO) > 0)
-    {
-        Log::Error("SDL_INIT_VIDEO Failed", SDL_GetError());
-    }
-
-    // if(!(IMG_Init(IMG_INIT_PNG)))
-    // {
-    //     std::cout << "Image initialisation failed" << SDL_GetError() << std::endl;
-    // }
+    GameWindow m_Window("Game", 1280, 720);
 
     return 0;
 }

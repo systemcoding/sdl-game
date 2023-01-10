@@ -10,6 +10,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 add_executable(sdl-game 
     src/Application.cpp
+    src/Window.cpp
 )
 
 target_link_libraries(sdl-game ${SDL2_LIBRARIES})
