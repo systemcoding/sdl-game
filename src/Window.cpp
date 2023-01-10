@@ -1,3 +1,13 @@
+/* This file contains the rendering loop and basic methods to create and run a window.
+   Even though the file's name is Window.cpp i really wanted to seperate my game loop
+   and my window stuff as i have done in my opengl project but i thought that would be 
+   a mess. So hopefully this is ok!
+
+   Written By: System Coding a.k.a Revanth
+   Date: 10-01-2023 
+*/
+
+
 #include "Window.h"
 
 GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
