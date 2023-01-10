@@ -1,0 +1,3 @@
+/home/revanth/Dev/sdl-game/build/CMakeFiles/sdl-game.dir
+/home/revanth/Dev/sdl-game/build/CMakeFiles/edit_cache.dir
+/home/revanth/Dev/sdl-game/build/CMakeFiles/rebuild_cache.dir

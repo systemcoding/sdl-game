@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/sdl-game.dir/src/Application.cpp.o" -o sdl-game  /usr/lib/x86_64-linux-gnu/libSDL2.so 
