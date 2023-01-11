@@ -1,7 +1,5 @@
 /* This file contains the rendering loop and basic methods to create and run a window.
-   Even though the file's name is Window.cpp i really wanted to seperate my game loop
-   and my window stuff as i have done in my opengl project but i thought that would be 
-   a mess. So hopefully this is ok!
+   No extra junk!
 
    Written By: System Coding a.k.a Revanth
    Date: 10-01-2023 
@@ -15,13 +13,13 @@ GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
 {
     if(SDL_Init(SDL_INIT_VIDEO) > 0)
     {
-        Log::Error("SDL_INIT_VIDEO Failed", SDL_GetError());
+        Log::Error("SDL_INIT_VIDEO Failed", SDL_GetError(), "\n");
     }
 
-    // if(!(IMG_Init(IMG_INIT_PNG)))
-    // {
-    //     std::cout << "Image initialisation failed" << SDL_GetError() << std::endl;
-    // }
+    if(!(IMG_Init(IMG_INIT_PNG)))
+    {
+        Log::Error("SDL_Image initialisation failed", SDL_GetError(), "\n");
+    }
 
     m_Window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
                                 SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_MAXIMIZED);
@@ -38,23 +36,6 @@ GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
         SDL_DestroyWindow(m_Window);
         Log::Error("SDL_CreateRenderer() function failed ", SDL_GetError(), "\n");
         SDL_Quit();
-    }
-
-    RenderLoop();
-}
-
-void GameWindow::RenderLoop()
-{
-    bool running = true;
-    SDL_Event event;
-
-    while(running)
-    {
-        while(SDL_PollEvent(&event))
-        {
-            if(event.type == SDL_QUIT)
-                running = false; 
-        } 
     }
 }
 
