@@ -41,7 +41,7 @@ SDL_Texture* Game::loadTexture(std::string filepath)
 
 void Game::gameLoop()
 {
-    SDL_Texture* texture = loadTexture("../res/textures/test.jpg");
+    SDL_Texture* texture = loadTexture("res/textures/test.jpg");
 
     bool running = true;
     SDL_Event event;
