@@ -17,9 +17,22 @@ void Game::clear()
     SDL_RenderClear(m_GameWindow->getRendererInstance());
 }
 
-void Game::render(SDL_Texture* characterTexture)
+void Game::render(Entity& entity)
 {
-    SDL_RenderCopy(m_GameWindow->getRendererInstance(), characterTexture, nullptr, nullptr);
+    SDL_Rect src;
+    src.x = entity.getCurrentFrame().x;
+    src.y = entity.getCurrentFrame().y;
+    src.w = entity.getCurrentFrame().w;
+    src.h = entity.getCurrentFrame().h;
+
+    SDL_Rect dest;
+    dest.x = entity.getXCoord();
+    dest.y = entity.getYCoord();
+    dest.w = entity.getCurrentFrame().w;
+    dest.h = entity.getCurrentFrame().h;
+
+
+    SDL_RenderCopy(m_GameWindow->getRendererInstance(), entity.getTexture(), &src, &dest);
 }
 
 void Game::display()
@@ -29,7 +42,7 @@ void Game::display()
 
 SDL_Texture* Game::loadTexture(std::string filepath)
 {
-    SDL_Texture* texture = NULL;
+    SDL_Texture* texture = nullptr;
 
     texture = IMG_LoadTexture(m_GameWindow->getRendererInstance(), filepath.c_str());
 
@@ -41,7 +54,16 @@ SDL_Texture* Game::loadTexture(std::string filepath)
 
 void Game::gameLoop()
 {
-    SDL_Texture* texture = loadTexture("../res/textures/test.jpg");
+    SDL_Texture* texture = loadTexture("../res/textures/grass.png");
+
+    std::vector<Entity> entity = {
+        Entity(texture, 100, 300),
+        Entity(texture, 200, 400),
+        Entity(texture, 200, 400),
+        Entity(texture, 800, 400),
+        Entity(texture, 20, 200),
+        Entity(texture, 20, 400),
+    }; 
 
     bool running = true;
     SDL_Event event;
@@ -55,7 +77,12 @@ void Game::gameLoop()
         } 
 
         clear();
-        render(texture);
+
+        for(Entity& entities : entity)
+        {
+            render(entities);
+        }
+
         display();
     }
 }

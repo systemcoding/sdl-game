@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sdl-game.dir/src/Application.cpp.o"
   "CMakeFiles/sdl-game.dir/src/Application.cpp.o.d"
+  "CMakeFiles/sdl-game.dir/src/Entity.cpp.o"
+  "CMakeFiles/sdl-game.dir/src/Entity.cpp.o.d"
   "CMakeFiles/sdl-game.dir/src/Game.cpp.o"
   "CMakeFiles/sdl-game.dir/src/Game.cpp.o.d"
   "CMakeFiles/sdl-game.dir/src/Window.cpp.o"

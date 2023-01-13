@@ -3,8 +3,10 @@
 #include <SDL2/SDL.h>
 
 #include <memory>
+#include <vector>
 
 #include "Window.h"
+#include "Entity.h"
 
 class Game
 {
@@ -19,7 +21,7 @@ public:
     void init();
 
     void clear();
-    void render(SDL_Texture* characterTexture);
+    void render(Entity& entity);
     void display();
 
     ~Game(); 
