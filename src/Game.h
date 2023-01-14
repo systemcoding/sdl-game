@@ -6,11 +6,13 @@
 #include <memory>
 
 #include "Window.h"
+#include "Entity.h"
 
 class Game
 {
 private:
     std::unique_ptr<GameWindow> m_GameWindow;
+    std::unique_ptr<Entity> m_Entity;
 public:
     Game(std::string title, uint32_t width, uint32_t height);
 
@@ -20,7 +22,7 @@ public:
     void init();
 
     void clear();
-    void render(SDL_Texture* characterTexture);
+    void render(Entity& entity);
     void display();
 
     ~Game(); 

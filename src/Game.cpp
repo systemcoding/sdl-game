@@ -17,9 +17,23 @@ void Game::clear()
     SDL_RenderClear(m_GameWindow->getRendererInstance());
 }
 
-void Game::render(SDL_Texture* characterTexture)
+void Game::render(Entity& entity)
 {
-    SDL_RenderCopy(m_GameWindow->getRendererInstance(), characterTexture, nullptr, nullptr);
+    SDL_Rect src;
+    src.x = entity.getCurrentFrame().x;
+    src.y = entity.getCurrentFrame().y;
+    src.w = entity.getCurrentFrame().w;
+    src.h = entity.getCurrentFrame().h;
+
+    SDL_Rect dest;
+    dest.x = entity.getXCoord();
+    dest.y = entity.getYCoord();
+    dest.w = entity.getCurrentFrame().w;
+    dest.h = entity.getCurrentFrame().h;
+
+
+
+    SDL_RenderCopy(m_GameWindow->getRendererInstance(), entity.getTexture(), &src, &dest);
 }
 
 void Game::display()
@@ -41,7 +55,9 @@ SDL_Texture* Game::loadTexture(std::string filepath)
 
 void Game::gameLoop()
 {
-    SDL_Texture* texture = loadTexture("res/textures/test.jpg");
+    SDL_Texture* texture = loadTexture("res/textures/grass.png");
+
+    Entity entity0(texture, 200, 100);
 
     bool running = true;
     SDL_Event event;
@@ -55,7 +71,7 @@ void Game::gameLoop()
         } 
 
         clear();
-        render(texture);
+        render(entity0);
         display();
     }
 }
