@@ -1,39 +1,28 @@
 #include "Game.h"
 
+// --------------------------------------Rendering test-------------------------------------
+void Game::ChangeColors(int color)
+{
+    m_WindowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
+
+    SDL_LockSurface(m_WindowSurface);
+    SDL_memset(m_WindowSurface->pixels, color, m_WindowSurface->h * m_WindowSurface->pitch);
+    SDL_UnlockSurface(m_WindowSurface);
+    SDL_UpdateWindowSurface(m_GameWindow->getWindowInstance());
+}
+// -----------------------------------------------------------------------------------------
+
 Game::Game(std::string title, uint32_t width, uint32_t height)
 {
     m_GameWindow.reset(new GameWindow(title, width, height));
-    gameLoop();
 
     init();
 }
 
-void Game::init()
+void Game::clearScreen()
 {
-}
-
-void Game::clear()
-{
+    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 0, 0, 0, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(m_GameWindow->getRendererInstance());
-}
-
-void Game::render(Entity& entity)
-{
-    SDL_Rect src;
-    src.x = entity.getCurrentFrame().x;
-    src.y = entity.getCurrentFrame().y;
-    src.w = entity.getCurrentFrame().w;
-    src.h = entity.getCurrentFrame().h;
-
-    SDL_Rect dest;
-    dest.x = entity.getXCoord();
-    dest.y = entity.getYCoord();
-    dest.w = entity.getCurrentFrame().w;
-    dest.h = entity.getCurrentFrame().h;
-
-
-
-    SDL_RenderCopy(m_GameWindow->getRendererInstance(), entity.getTexture(), &src, &dest);
 }
 
 void Game::display()
@@ -41,23 +30,15 @@ void Game::display()
     SDL_RenderPresent(m_GameWindow->getRendererInstance());
 }
 
-SDL_Texture* Game::loadTexture(std::string filepath)
+void Game::render()
 {
-    SDL_Texture* texture = NULL;
-
-    texture = IMG_LoadTexture(m_GameWindow->getRendererInstance(), filepath.c_str());
-
-    if(texture == nullptr)
-        Log::Error("Failed to load texture", SDL_GetError(), "\n");
-
-    return texture;
+    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 255, 255, 255, SDL_ALPHA_OPAQUE);
+    SDL_RenderDrawLine(m_GameWindow->getRendererInstance(), 5, 5, 100, 120);
 }
 
-void Game::gameLoop()
+void Game::init()
 {
-    SDL_Texture* texture = loadTexture("res/textures/grass.png");
-
-    Entity entity0(texture, 200, 100);
+    SDL_Surface* windowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
 
     bool running = true;
     SDL_Event event;
@@ -67,11 +48,11 @@ void Game::gameLoop()
         while(SDL_PollEvent(&event))
         {
             if(event.type == SDL_QUIT)
-                running = false; 
+                running = false;
         } 
 
-        clear();
-        render(entity0);
+        clearScreen();
+        render();
         display();
     }
 }

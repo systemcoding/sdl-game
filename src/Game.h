@@ -6,23 +6,25 @@
 #include <memory>
 
 #include "Window.h"
-#include "Entity.h"
 
 class Game
 {
 private:
     std::unique_ptr<GameWindow> m_GameWindow;
-    std::unique_ptr<Entity> m_Entity;
+private:
+    SDL_Surface* m_WindowSurface;
+    SDL_Renderer* m_Renderer;
 public:
     Game(std::string title, uint32_t width, uint32_t height);
 
-    SDL_Texture* loadTexture(std::string filepath);
-
-    void gameLoop();
     void init();
 
-    void clear();
-    void render(Entity& entity);
+    // Rendering test functions
+    void ChangeColors(int color);
+    ////////////////////////////
+
+    void clearScreen();
+    void render();
     void display();
 
     ~Game(); 

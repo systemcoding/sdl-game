@@ -22,6 +22,7 @@ public:
     GameWindow(std::string title, uint32_t width, uint32_t height);
 
     SDL_Renderer* getRendererInstance() { return m_Renderer; }
+    SDL_Window* getWindowInstance() { return m_Window; }
 
     ~GameWindow();
 };
