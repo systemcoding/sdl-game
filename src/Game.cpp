@@ -32,13 +32,16 @@ void Game::display()
 
 void Game::render()
 {
-    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 255, 255, 255, SDL_ALPHA_OPAQUE);
-    SDL_RenderDrawLine(m_GameWindow->getRendererInstance(), 5, 5, 100, 120);
+    m_TexturedRectangle.renderTexturedRectangle(m_GameWindow->getRendererInstance(), "./res/images/kong.bmp");
+    m_TexturedRectangle.CreateRectangle(30, 50, 200, 250);
+    m_TexturedRectangle.Render(m_GameWindow->getRendererInstance());
+
+    m_TexturedRectangle.destroy();
 }
 
 void Game::init()
 {
-    SDL_Surface* windowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
+    m_WindowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
 
     bool running = true;
     SDL_Event event;
@@ -59,5 +62,4 @@ void Game::init()
 
 Game::~Game()
 {
-
 }

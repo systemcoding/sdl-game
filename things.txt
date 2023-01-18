@@ -1,0 +1,7 @@
+(FOR NOW...)
+* Window Creation and Basic abstraction -- done
+* get basic events working -- done
+* implement a textured rectangle class -- done
+* Character loaded (as a sprite)
+* move the Character
+* basic world in the background
