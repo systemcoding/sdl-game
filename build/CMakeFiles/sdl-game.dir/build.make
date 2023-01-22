@@ -111,26 +111,26 @@ CMakeFiles/sdl-game.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-game.dir/src/Game.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/revanth/Dev/sdl-game/src/Game.cpp -o CMakeFiles/sdl-game.dir/src/Game.cpp.s
 
-CMakeFiles/sdl-game.dir/src/Entity.cpp.o: CMakeFiles/sdl-game.dir/flags.make
-CMakeFiles/sdl-game.dir/src/Entity.cpp.o: ../src/Entity.cpp
-CMakeFiles/sdl-game.dir/src/Entity.cpp.o: CMakeFiles/sdl-game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/revanth/Dev/sdl-game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sdl-game.dir/src/Entity.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdl-game.dir/src/Entity.cpp.o -MF CMakeFiles/sdl-game.dir/src/Entity.cpp.o.d -o CMakeFiles/sdl-game.dir/src/Entity.cpp.o -c /home/revanth/Dev/sdl-game/src/Entity.cpp
+CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o: CMakeFiles/sdl-game.dir/flags.make
+CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o: ../src/TexturedRectangle.cpp
+CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o: CMakeFiles/sdl-game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/revanth/Dev/sdl-game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o -MF CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o.d -o CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o -c /home/revanth/Dev/sdl-game/src/TexturedRectangle.cpp
 
-CMakeFiles/sdl-game.dir/src/Entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sdl-game.dir/src/Entity.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/revanth/Dev/sdl-game/src/Entity.cpp > CMakeFiles/sdl-game.dir/src/Entity.cpp.i
+CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/revanth/Dev/sdl-game/src/TexturedRectangle.cpp > CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.i
 
-CMakeFiles/sdl-game.dir/src/Entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-game.dir/src/Entity.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/revanth/Dev/sdl-game/src/Entity.cpp -o CMakeFiles/sdl-game.dir/src/Entity.cpp.s
+CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/revanth/Dev/sdl-game/src/TexturedRectangle.cpp -o CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.s
 
 # Object files for target sdl-game
 sdl__game_OBJECTS = \
 "CMakeFiles/sdl-game.dir/src/Application.cpp.o" \
 "CMakeFiles/sdl-game.dir/src/Window.cpp.o" \
 "CMakeFiles/sdl-game.dir/src/Game.cpp.o" \
-"CMakeFiles/sdl-game.dir/src/Entity.cpp.o"
+"CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o"
 
 # External object files for target sdl-game
 sdl__game_EXTERNAL_OBJECTS =
@@ -138,7 +138,7 @@ sdl__game_EXTERNAL_OBJECTS =
 sdl-game: CMakeFiles/sdl-game.dir/src/Application.cpp.o
 sdl-game: CMakeFiles/sdl-game.dir/src/Window.cpp.o
 sdl-game: CMakeFiles/sdl-game.dir/src/Game.cpp.o
-sdl-game: CMakeFiles/sdl-game.dir/src/Entity.cpp.o
+sdl-game: CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o
 sdl-game: CMakeFiles/sdl-game.dir/build.make
 sdl-game: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 sdl-game: /usr/lib/x86_64-linux-gnu/libSDL2.so
