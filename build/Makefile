@@ -153,6 +153,30 @@ src/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Application.cpp.s
 .PHONY : src/Application.cpp.s
 
+src/Character.o: src/Character.cpp.o
+.PHONY : src/Character.o
+
+# target to build an object file
+src/Character.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.o
+.PHONY : src/Character.cpp.o
+
+src/Character.i: src/Character.cpp.i
+.PHONY : src/Character.i
+
+# target to preprocess a source file
+src/Character.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.i
+.PHONY : src/Character.cpp.i
+
+src/Character.s: src/Character.cpp.s
+.PHONY : src/Character.s
+
+# target to generate assembly for a file
+src/Character.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.s
+.PHONY : src/Character.cpp.s
+
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -177,29 +201,29 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
-src/TexturedRectangle.o: src/TexturedRectangle.cpp.o
-.PHONY : src/TexturedRectangle.o
+src/Texture.o: src/Texture.cpp.o
+.PHONY : src/Texture.o
 
 # target to build an object file
-src/TexturedRectangle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.o
-.PHONY : src/TexturedRectangle.cpp.o
+src/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Texture.cpp.o
+.PHONY : src/Texture.cpp.o
 
-src/TexturedRectangle.i: src/TexturedRectangle.cpp.i
-.PHONY : src/TexturedRectangle.i
+src/Texture.i: src/Texture.cpp.i
+.PHONY : src/Texture.i
 
 # target to preprocess a source file
-src/TexturedRectangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.i
-.PHONY : src/TexturedRectangle.cpp.i
+src/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
 
-src/TexturedRectangle.s: src/TexturedRectangle.cpp.s
-.PHONY : src/TexturedRectangle.s
+src/Texture.s: src/Texture.cpp.s
+.PHONY : src/Texture.s
 
 # target to generate assembly for a file
-src/TexturedRectangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/TexturedRectangle.cpp.s
-.PHONY : src/TexturedRectangle.cpp.s
+src/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
 
 src/Window.o: src/Window.cpp.o
 .PHONY : src/Window.o
@@ -237,12 +261,15 @@ help:
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
 	@echo "... src/Application.s"
+	@echo "... src/Character.o"
+	@echo "... src/Character.i"
+	@echo "... src/Character.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
-	@echo "... src/TexturedRectangle.o"
-	@echo "... src/TexturedRectangle.i"
-	@echo "... src/TexturedRectangle.s"
+	@echo "... src/Texture.o"
+	@echo "... src/Texture.i"
+	@echo "... src/Texture.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
