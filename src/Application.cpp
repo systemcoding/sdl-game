@@ -1,10 +1,11 @@
 #include "Game.h"
 
-#include <iostream>
-
 int main(int argc, char **argv)
 {
-    Game game("Game", 800, 600);
+    Game* game = new Game("Game", 800, 600);
+    game->gameLoop();
+
+    delete game;
 
     return 0;
 }

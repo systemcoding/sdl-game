@@ -1,22 +1,53 @@
 #include "Game.h"
 
-// --------------------------------------Rendering test-------------------------------------
-void Game::ChangeColors(int color)
+// initialise static members
+int Game::m_Fps = 60;
+int Game::m_FrameDelay = 1000 / Game::m_Fps;
+uint32_t Game::m_FrameStart;
+int Game::m_FrameTime;
+
+int count = 0;
+
+Game::Game(std::string title, uint32_t width, uint32_t height)
+    :m_GameRunning(true)
+{
+    m_GameWindow.reset(new GameWindow(title, width, height));
+}
+
+void Game::gameLoop()
 {
     m_WindowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
 
-    SDL_LockSurface(m_WindowSurface);
-    SDL_memset(m_WindowSurface->pixels, color, m_WindowSurface->h * m_WindowSurface->pitch);
-    SDL_UnlockSurface(m_WindowSurface);
-    SDL_UpdateWindowSurface(m_GameWindow->getWindowInstance());
+    while(m_GameRunning)
+    {
+        count++;
+        m_FrameStart = SDL_GetTicks();
+
+        // functions that need to be ran
+        handleEvents();
+        clearScreen();
+        render();
+        display();
+
+        m_FrameTime = SDL_GetTicks() - m_FrameStart;
+
+        if(m_FrameDelay > m_FrameTime)
+        {
+            SDL_Delay(m_FrameDelay - m_FrameTime);
+        }
+    }
 }
-// -----------------------------------------------------------------------------------------
 
-Game::Game(std::string title, uint32_t width, uint32_t height)
+void Game::handleEvents()
 {
-    m_GameWindow.reset(new GameWindow(title, width, height));
+    SDL_Event event;
 
-    init();
+    while(SDL_PollEvent(&event))
+    {
+        if(event.type == SDL_QUIT)
+            m_GameRunning = false;
+        
+    }
 }
 
 void Game::clearScreen()
@@ -32,34 +63,11 @@ void Game::display()
 
 void Game::render()
 {
-    m_TexturedRectangle.renderTexturedRectangle(m_GameWindow->getRendererInstance(), "../res/images/kong.bmp");
-    m_TexturedRectangle.CreateRectangle(30, 50, 200, 250);
-    m_TexturedRectangle.Render(m_GameWindow->getRendererInstance());
-
-    m_TexturedRectangle.destroy();
-}
-
-void Game::init()
-{
-    m_WindowSurface = SDL_GetWindowSurface(m_GameWindow->getWindowInstance());
-
-    bool running = true;
-    SDL_Event event;
-
-    while(running)
-    {
-        while(SDL_PollEvent(&event))
-        {
-            if(event.type == SDL_QUIT)
-                running = false;
-        } 
-
-        clearScreen();
-        render();
-        display();
-    }
+    m_Character = new Character();
+    m_Character->loadCharacter("../res/images/character.png", m_GameWindow->getRendererInstance());
 }
 
 Game::~Game()
 {
+    delete m_Character;
 }

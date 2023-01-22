@@ -22,7 +22,7 @@ GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
     }
 
     m_Window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
-                                SDL_WINDOWPOS_UNDEFINED, width, height, 0);
+                                SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
     if(m_Window == nullptr)
     {
