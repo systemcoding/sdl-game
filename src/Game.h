@@ -6,13 +6,15 @@
 
 #include "Window.h"
 #include "Texture.h"
+#include "World.h"
 #include "Character.h"
 
 class Game
 {
 private:
     std::unique_ptr<GameWindow> m_GameWindow;
-    Character* m_Character;
+    std::unique_ptr<World> m_World;
+    std::unique_ptr<Character> m_Character;
 private:
     SDL_Surface* m_WindowSurface;
 private:
@@ -24,6 +26,7 @@ private:
     
     bool m_GameRunning;
 public:
+    static SDL_Event m_Event;
     Game(std::string title, uint32_t width, uint32_t height);
 
     void gameLoop();

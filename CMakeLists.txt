@@ -16,6 +16,7 @@ add_executable(sdl-game
     src/Window.cpp
     src/Game.cpp
     src/Texture.cpp
+    src/World.cpp
     src/Character.cpp
 )
 

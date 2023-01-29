@@ -5,13 +5,14 @@ int Game::m_Fps = 60;
 int Game::m_FrameDelay = 1000 / Game::m_Fps;
 uint32_t Game::m_FrameStart;
 int Game::m_FrameTime;
-
-int count = 0;
+SDL_Event Game::m_Event;
 
 Game::Game(std::string title, uint32_t width, uint32_t height)
     :m_GameRunning(true)
 {
     m_GameWindow.reset(new GameWindow(title, width, height));
+    m_World.reset(new World());
+    m_Character.reset(new Character());
 }
 
 void Game::gameLoop()
@@ -20,7 +21,6 @@ void Game::gameLoop()
 
     while(m_GameRunning)
     {
-        count++;
         m_FrameStart = SDL_GetTicks();
 
         // functions that need to be ran
@@ -40,20 +40,24 @@ void Game::gameLoop()
 
 void Game::handleEvents()
 {
-    SDL_Event event;
-
-    while(SDL_PollEvent(&event))
+    while(SDL_PollEvent(&m_Event))
     {
-        if(event.type == SDL_QUIT)
+        if(m_Event.type == SDL_QUIT)
             m_GameRunning = false;
-        
+        m_Character->moveCharacter(); 
     }
 }
 
 void Game::clearScreen()
 {
-    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 0, 0, 0, SDL_ALPHA_OPAQUE);
+    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 128, 128, 128, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(m_GameWindow->getRendererInstance());
+}
+
+void Game::render()
+{
+    m_World->renderPlatform(m_GameWindow->getRendererInstance());
+    m_Character->renderCharacter(m_GameWindow->getRendererInstance());
 }
 
 void Game::display()
@@ -61,13 +65,7 @@ void Game::display()
     SDL_RenderPresent(m_GameWindow->getRendererInstance());
 }
 
-void Game::render()
-{
-    m_Character = new Character();
-    m_Character->loadCharacter("../res/images/character.png", m_GameWindow->getRendererInstance());
-}
 
 Game::~Game()
 {
-    delete m_Character;
 }

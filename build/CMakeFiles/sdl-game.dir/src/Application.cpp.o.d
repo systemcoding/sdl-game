@@ -315,4 +315,5 @@ CMakeFiles/sdl-game.dir/src/Application.cpp.o: \
  /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc \
  /home/revanth/Dev/sdl-game/src/Texture.h \
+ /home/revanth/Dev/sdl-game/src/World.h \
  /home/revanth/Dev/sdl-game/src/Character.h

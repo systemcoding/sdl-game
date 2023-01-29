@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sdl-game.dir/src/Texture.cpp.o.d"
   "CMakeFiles/sdl-game.dir/src/Window.cpp.o"
   "CMakeFiles/sdl-game.dir/src/Window.cpp.o.d"
+  "CMakeFiles/sdl-game.dir/src/World.cpp.o"
+  "CMakeFiles/sdl-game.dir/src/World.cpp.o.d"
   "sdl-game"
   "sdl-game.pdb"
 )
