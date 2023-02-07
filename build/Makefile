@@ -153,30 +153,6 @@ src/Application.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Application.cpp.s
 .PHONY : src/Application.cpp.s
 
-src/Character.o: src/Character.cpp.o
-.PHONY : src/Character.o
-
-# target to build an object file
-src/Character.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.o
-.PHONY : src/Character.cpp.o
-
-src/Character.i: src/Character.cpp.i
-.PHONY : src/Character.i
-
-# target to preprocess a source file
-src/Character.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.i
-.PHONY : src/Character.cpp.i
-
-src/Character.s: src/Character.cpp.s
-.PHONY : src/Character.s
-
-# target to generate assembly for a file
-src/Character.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Character.cpp.s
-.PHONY : src/Character.cpp.s
-
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -200,6 +176,30 @@ src/Game.s: src/Game.cpp.s
 src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
+
+src/Input.o: src/Input.cpp.o
+.PHONY : src/Input.o
+
+# target to build an object file
+src/Input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Input.cpp.o
+.PHONY : src/Input.cpp.o
+
+src/Input.i: src/Input.cpp.i
+.PHONY : src/Input.i
+
+# target to preprocess a source file
+src/Input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Input.cpp.i
+.PHONY : src/Input.cpp.i
+
+src/Input.s: src/Input.cpp.s
+.PHONY : src/Input.s
+
+# target to generate assembly for a file
+src/Input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Input.cpp.s
+.PHONY : src/Input.cpp.s
 
 src/Texture.o: src/Texture.cpp.o
 .PHONY : src/Texture.o
@@ -249,30 +249,6 @@ src/Window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/Window.cpp.s
 .PHONY : src/Window.cpp.s
 
-src/World.o: src/World.cpp.o
-.PHONY : src/World.o
-
-# target to build an object file
-src/World.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/World.cpp.o
-.PHONY : src/World.cpp.o
-
-src/World.i: src/World.cpp.i
-.PHONY : src/World.i
-
-# target to preprocess a source file
-src/World.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/World.cpp.i
-.PHONY : src/World.cpp.i
-
-src/World.s: src/World.cpp.s
-.PHONY : src/World.s
-
-# target to generate assembly for a file
-src/World.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdl-game.dir/build.make CMakeFiles/sdl-game.dir/src/World.cpp.s
-.PHONY : src/World.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -285,21 +261,18 @@ help:
 	@echo "... src/Application.o"
 	@echo "... src/Application.i"
 	@echo "... src/Application.s"
-	@echo "... src/Character.o"
-	@echo "... src/Character.i"
-	@echo "... src/Character.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/Input.o"
+	@echo "... src/Input.i"
+	@echo "... src/Input.s"
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"
 	@echo "... src/Window.o"
 	@echo "... src/Window.i"
 	@echo "... src/Window.s"
-	@echo "... src/World.o"
-	@echo "... src/World.i"
-	@echo "... src/World.s"
 .PHONY : help
 
 

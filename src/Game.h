@@ -6,15 +6,13 @@
 
 #include "Window.h"
 #include "Texture.h"
-#include "World.h"
-#include "Character.h"
+#include "Input.h"
 
 class Game
 {
 private:
     std::unique_ptr<GameWindow> m_GameWindow;
-    std::unique_ptr<World> m_World;
-    std::unique_ptr<Character> m_Character;
+    std::unique_ptr<Input> m_Input{new Input()};
 private:
     SDL_Surface* m_WindowSurface;
 private:
@@ -31,13 +29,10 @@ public:
 
     void gameLoop();
 
-    void handleEvents();
-
-    void update();
-
     void clearScreen();
-    void render();
-    void display();
+    void displayScreen();
+
+    void handleEvents();
 
     ~Game(); 
 };

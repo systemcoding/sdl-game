@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-    Game* game = new Game("Game", 1280, 720);
+    Game* game = new Game("Square Fight!", 800, 600);
     game->gameLoop();
 
     delete game;

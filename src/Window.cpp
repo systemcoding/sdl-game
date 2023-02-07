@@ -8,8 +8,15 @@
 
 #include "Window.h"
 
+SDL_Window* GameWindow::m_Window;
+SDL_Renderer* GameWindow::m_Renderer;
+
 GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
     :m_Title(title), m_Width(width), m_Height(height)
+{
+}
+
+void GameWindow::createWindow(std::string title, uint32_t width, uint32_t height)
 {
     if(SDL_Init(SDL_INIT_VIDEO) > 0)
     {
@@ -22,7 +29,7 @@ GameWindow::GameWindow(std::string title, uint32_t width, uint32_t height)
     }
 
     m_Window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
-                                SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_FULLSCREEN_DESKTOP);
+                                SDL_WINDOWPOS_UNDEFINED, width, height, 0);
 
     if(m_Window == nullptr)
     {

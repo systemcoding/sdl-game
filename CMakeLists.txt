@@ -16,8 +16,7 @@ add_executable(sdl-game
     src/Window.cpp
     src/Game.cpp
     src/Texture.cpp
-    src/World.cpp
-    src/Character.cpp
+    src/Input.cpp
 )
 
 target_link_libraries(sdl-game ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

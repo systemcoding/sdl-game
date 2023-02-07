@@ -10,9 +10,7 @@ SDL_Event Game::m_Event;
 Game::Game(std::string title, uint32_t width, uint32_t height)
     :m_GameRunning(true)
 {
-    m_GameWindow.reset(new GameWindow(title, width, height));
-    m_World.reset(new World());
-    m_Character.reset(new Character());
+    GameWindow::createWindow(title, width, height);
 }
 
 void Game::gameLoop()
@@ -23,11 +21,9 @@ void Game::gameLoop()
     {
         m_FrameStart = SDL_GetTicks();
 
-        // functions that need to be ran
-        handleEvents();
         clearScreen();
-        render();
-        display();
+        displayScreen();
+        handleEvents();
 
         m_FrameTime = SDL_GetTicks() - m_FrameStart;
 
@@ -36,35 +32,52 @@ void Game::gameLoop()
             SDL_Delay(m_FrameDelay - m_FrameTime);
         }
     }
+
 }
 
 void Game::handleEvents()
 {
-    while(SDL_PollEvent(&m_Event))
+    while(m_GameRunning)
     {
-        if(m_Event.type == SDL_QUIT)
+        m_Input->resetKeys();
+        if(SDL_PollEvent(&m_Event))
+        {
+            if(m_Event.type == SDL_KEYDOWN)
+            {
+                if(m_Event.key.repeat == 0)
+                {
+                    m_Input->keyDown(m_Event);
+                }
+            }
+
+            else if(m_Event.type == SDL_KEYUP)
+            {
+                m_Input->keyUp(m_Event);
+            }
+
+            else if(m_Event.type == SDL_QUIT)
+            {
+                m_GameRunning = false;
+            }
+        }
+
+        if(m_Input->isKeyPressed(SDL_SCANCODE_ESCAPE) == true)
+        {
             m_GameRunning = false;
-        m_Character->moveCharacter(); 
+        }
+
     }
 }
 
 void Game::clearScreen()
 {
-    SDL_SetRenderDrawColor(m_GameWindow->getRendererInstance(), 128, 128, 128, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(m_GameWindow->getRendererInstance());
 }
 
-void Game::render()
-{
-    m_World->renderPlatform(m_GameWindow->getRendererInstance());
-    m_Character->renderCharacter(m_GameWindow->getRendererInstance());
-}
-
-void Game::display()
+void Game::displayScreen()
 {
     SDL_RenderPresent(m_GameWindow->getRendererInstance());
 }
-
 
 Game::~Game()
 {
